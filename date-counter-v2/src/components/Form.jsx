@@ -1,4 +1,5 @@
 import React from "react";
+import reactLogo from "../assets/react.svg";
 
 function Form() {
   const [count, setCount] = React.useState(0);
@@ -49,16 +50,17 @@ function Form() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-500">
+        <img className="w-16 transition " src={reactLogo} alt="logo react" />
         <h1 className="text-3xl font-bold text-white mb-6">Date Counter v2</h1>
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded shadow-md w-96 h-70"
+        className="bg-white p-6 rounded shadow-md w-120 h-70"
       >
         <div className="flex justify-center gap-2 bg-zinc-200 p-2 rounded mb-4 shadow-md">
-          <input
+          <input className="accent-slate-500 w-full "
             value={stepInputRange}
-            min={0}
-            max={10}
+            min={1}
+            max={31}
             type="range"
             onChange={(e) => setStepInputRange(+e.target.value)}
           />{" "}
@@ -78,7 +80,7 @@ function Form() {
             value={count}
             onChange={(e) => setCount(+e.target.value)}
             type="text"
-            className="outline-0 bg-zinc-100 p-2 rounded-md shadow-lg focus:border-slate-400 focus:border-1"
+            className="outline-0 bg-zinc-100 p-2 rounded-md shadow-lg focus:border-slate-400 focus:border-1 font-bold text-lg"
           />
           <button
             onClick={handleIncrement}
@@ -89,7 +91,7 @@ function Form() {
         </div>
 
         <p className="text-center text-gray-700 mb-4">
-          <span>
+          <span className="font-bold text-lg border-b-2 border-gray-300 ">
             {count === 0
               ? "Today is "
               : count > 0
